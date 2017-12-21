@@ -111,7 +111,7 @@ class WSClient:
 
     def write_channel(self, channel, data):
         """Write data to a channel."""
-        self.sock.send(chr(channel) + data)
+        self.sock.send(bytearray((channel,)) + data)
 
     def peek_stdout(self, timeout=0):
         """Same as peek_channel with channel=1."""
